@@ -90,7 +90,7 @@ class GoogleMapsScraper:
             review_content = review.find("span", class_="wiI7pd").text
             full_review_link = review.find("a")['href']
             rating = int((review.find_all("div", class_="DU9Pgb")[0].find("span").text)[0])
-            review_time_information = review.find("div", class_="DU9Pgb").find("span", {"jstcache": "1629"}).text
+            review_time_information = ((review.find("div", class_="DU9Pgb").find_all("span"))[2]).find("span").text
             owner_reply = True if review.find("span", class_="nM6d2c") is not None else False
             if owner_reply:
                 reply_text_from_owner = review.find("div", class_="wiI7pd").text
